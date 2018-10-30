@@ -213,7 +213,7 @@ public class Main {
 			System.out.println("--------------------");
 			System.out.println("--------------------");
 			System.out.println("--------------------");
-			Scanner c = null;
+		
 			switch (key) {
 			case 0:
 				controle = true;
@@ -223,11 +223,11 @@ public class Main {
 				System.out.println("--------------------");
 				System.out.println("BEM VINDO AO SISTEMA DE CADASTRO");
 				System.out.println("Digite o seu nome: ");
-				String nome = c.nextLine();
+				String nome = scanner2.nextLine();
 				System.out.println("Endereço da Empresa: ");
-				String endereco = c.nextLine();
+				String endereco = scanner2.nextLine();
 				System.out.println("CNPJ: ");
-				String cnpj = c.nextLine();
+				String cnpj = scanner2.nextLine();
 				System.out.println("--------------------");
 				System.out.println("--------------------");
 				pj.setNome(nome);
@@ -454,3 +454,4 @@ public class Main {
 		}
 	}
 }
+
