@@ -1,5 +1,6 @@
 package main;
 
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -219,15 +220,16 @@ public class Main {
 				controle = true;
 				break;
 			case 1:
+				Scanner c = new Scanner(System.in);
 				System.out.println("--------------------");
 				System.out.println("--------------------");
 				System.out.println("BEM VINDO AO SISTEMA DE CADASTRO");
 				System.out.println("Digite o seu nome: ");
-				String nome = scanner2.nextLine();
+				String nome = c.nextLine();
 				System.out.println("Endereço da Empresa: ");
-				String endereco = scanner2.nextLine();
+				String endereco = c.nextLine();
 				System.out.println("CNPJ: ");
-				String cnpj = scanner2.nextLine();
+				String cnpj = c.nextLine();
 				System.out.println("--------------------");
 				System.out.println("--------------------");
 				pj.setNome(nome);
