@@ -15,7 +15,6 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		
 		boolean controle = true;
 		do {
 			try {
@@ -26,16 +25,22 @@ public class Main {
 				else if (opcao == 1)
 					MenuJuridica();
 				else
-					controle = false;
+					controle = true;
 
 			} catch (java.util.InputMismatchException e) {
+				System.out.println("--------------------");
+				System.out.println("--------------------");
+
 				System.out.println("Aviso de Excecao: Opcao Invalida! Sao permitidos apenas numeros!");
 				System.out.println("Por favor, escolha uma opcao valida.");
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				controle = false;
 				// scanner.next();// limpar o buffer
 			}
 		} while (!controle);
 		// scanner.close();
+		System.out.println("Tchau!!");
 	}
 
 	public static int menuOpcoes() {
@@ -43,13 +48,20 @@ public class Main {
 		int opçao = 0;
 		do {
 			try {
+				System.out.println("--------------------");
+				System.out.println("--------------------");
+
 				System.out.println("Escolha o tipo do cadastro:");
 				System.out.println("0 - Pessoa fisica");
 				System.out.println("1 - Pessoa juridica");
 				System.out.println("3 - Sair");
+
 				controle = true; // deve concluir o loop
 
 				opçao = scanner2.nextInt();
+				System.out.println("--------------------");
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				if (opçao == 0)
 					controle = true;
 				else if (opçao == 1)
@@ -60,8 +72,12 @@ public class Main {
 					throw new InputMismatchException();
 				// ------------------------------------------------------
 			} catch (InputMismatchException e) {
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				System.out.println("Opcao Invalida! Sao permitidos apenas 0 ou 1!");
 				System.out.println("Por favor, escolha uma opcao válida.");
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				controle = false;// ainda NAO deve concluir o loop
 				scanner2.next();// limpar o buffer
 			}
@@ -73,10 +89,10 @@ public class Main {
 
 	public static void MenuFisica() {
 
-		
 		boolean controle = false;
 		do {
-
+			System.out.println("--------------------");
+			System.out.println("--------------------");
 			System.out.println("\t menu");
 			System.out.println("0. Fim");
 			System.out.println("1. Cadastrar");
@@ -86,6 +102,9 @@ public class Main {
 			System.out.println("Opcao:");
 
 			int key = scanner2.nextInt();
+			System.out.println("--------------------");
+			System.out.println("--------------------");
+			System.out.println("--------------------");
 
 			switch (key) {
 			case 0:
@@ -94,6 +113,8 @@ public class Main {
 			case 1:
 
 				Scanner c = new Scanner(System.in);
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				System.out.println("BEM VINDO AO SISTEMA DE CADASTRO");
 				System.out.println("Digite o seu nome: ");
 				String nome = c.nextLine();
@@ -101,6 +122,8 @@ public class Main {
 				String endereco = c.nextLine();
 				System.out.println("CPF: ");
 				String cpf = c.nextLine();
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				pf.setNome(nome);
 				pf.setEndereco(endereco);
 				pf.setCpf(cpf);
@@ -109,11 +132,14 @@ public class Main {
 				break;
 
 			case 2:
+				System.out.println("--------------------");
 
 				System.out.println("Digite o CPF para a busca");
+
 				scanner2.next();
+				System.out.println("--------------------");
 				bus = scanner2.nextLine();
-				if (bus != " " && bus != null && bus.length() == 11) {
+				if (bus != " " && bus != null) {
 					PessoaFisica pff = pf.buscar(bus);
 					System.out.println(pff.getCpf());
 					System.out.println(pff.getNome());
@@ -121,24 +147,38 @@ public class Main {
 					System.out.println("--------------------");
 					controle = false;
 					break;
-				} else if (bus == " " || bus == null || bus.length() < 11) {
+				} else {
+					System.out.println("--------------------");
 					System.out.println("Consulta inválida. Digite um CPF.");
+					System.out.println("--------------------");
 					controle = false;
 					break;
 
 				}
 			case 3:
+				System.out.println("--------------------");
 
 				System.out.println("Digite o CPF para remover o cadastro.");
+
 				scanner2.next();
+				System.out.println("--------------------");
 				rm = scanner2.nextLine();
-				if (rm != " " && rm != null && rm.length() == 11) {
+				if (rm != " " && rm != null) {
 					pf.remover(rm);
+
+					System.out.println("--------------------");
+					System.out.println("--------------------");
+					System.out.println("Removido!!!!.");
+					System.out.println("--------------------");
+					System.out.println("--------------------");
+
 					controle = false;
 					break;
 
-				} else if (rm == " " || rm == null || rm.length() < 11) {
+				} else {
+					System.out.println("--------------------");
 					System.out.println("Informação inválida. Digite um CPF.");
+					System.out.println("--------------------");
 					controle = false;
 					break;
 				}
@@ -154,10 +194,12 @@ public class Main {
 	}
 
 	static public void MenuJuridica() {
-		Scanner scanner2 = null;
+
 		boolean controle = false;
 		do {
-
+			System.out.println("--------------------");
+			System.out.println("--------------------");
+			System.out.println("--------------------");
 			System.out.println("\t menu");
 			System.out.println("0. Fim");
 			System.out.println("1. Cadastrar");
@@ -165,16 +207,20 @@ public class Main {
 			System.out.println("3. Remover");
 			System.out.println("4. Listar");
 			System.out.println("Opcao:");
+		
 
 			int key = scanner2.nextInt();
-
+			System.out.println("--------------------");
+			System.out.println("--------------------");
+			System.out.println("--------------------");
 			Scanner c = null;
 			switch (key) {
 			case 0:
 				controle = true;
 				break;
 			case 1:
-
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				System.out.println("BEM VINDO AO SISTEMA DE CADASTRO");
 				System.out.println("Digite o seu nome: ");
 				String nome = c.nextLine();
@@ -182,6 +228,8 @@ public class Main {
 				String endereco = c.nextLine();
 				System.out.println("CNPJ: ");
 				String cnpj = c.nextLine();
+				System.out.println("--------------------");
+				System.out.println("--------------------");
 				pj.setNome(nome);
 				pj.setEndereco(endereco);
 				pj.setCnpj(cnpj);
@@ -190,33 +238,45 @@ public class Main {
 				break;
 
 			case 2:
-
+				System.out.println("--------------------");
 				System.out.println("Digite o CNPJ para a busca");
 				scanner2.next();
 				bus = scanner2.nextLine();
-				if (bus != " " && bus != null && bus.length() == 11) {
+				if (bus != " " && bus != null) {
 					PessoaJuridica pjj = pj.buscar(bus);
+					System.out.println("--------------------");
 					System.out.println(pjj.getCnpj());
 					System.out.println(pjj.getNome());
 					System.out.println(pjj.getEndereco());
 					System.out.println("--------------------");
+
 					controle = false;
 					break;
-				} else if (bus == " " || bus == null || bus.length() < 14) {
+				} else {
+					System.out.println("--------------------");
 					System.out.println("Consulta inválida. Digite um CPF.");
+					System.out.println("--------------------");
 					controle = false;
 					break;
 				}
 			case 3:
-
+				System.out.println("--------------------");
 				System.out.println("Digite o CNPJ para remover o cadastro.");
+				System.out.println("--------------------");
 				scanner2.next();
 				rm = scanner2.nextLine();
-				if (rm != " " && rm != null && rm.length() == 14) {
+				if (rm != " " && rm != null) {
 					pj.remover(rm);
+					System.out.println("--------------------");
+					System.out.println("--------------------");
+					System.out.println("Removido!!!!.");
+					System.out.println("--------------------");
+					System.out.println("--------------------");
 
-				} else if (rm == " " || rm == null || rm.length() < 14) {
+				} else {
+					System.out.println("--------------------");
 					System.out.println("Informação inválida. Digite um CNPJ.");
+					System.out.println("--------------------");
 					controle = false;
 					break;
 
