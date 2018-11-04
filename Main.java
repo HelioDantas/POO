@@ -106,7 +106,6 @@ public class Main {
 			System.out.println("--------------------");
 			System.out.println("--------------------");
 			System.out.println("--------------------");
-
 			switch (key) {
 			case 0:
 				controle = true;
@@ -136,11 +135,12 @@ public class Main {
 				System.out.println("--------------------");
 
 				System.out.println("Digite o CPF para a busca");
+				Scanner input = new Scanner(System.in);
+				
+				bus = input.nextLine();
+				//scanner2.next();
 
-				scanner2.next();
-				System.out.println("--------------------");
-				bus = scanner2.nextLine();
-				if (bus != " " && bus != null) {
+				if (bus != "" || bus != null) {
 					PessoaFisica pff = pf.buscar(bus);
 					System.out.println(pff.getCpf());
 					System.out.println(pff.getNome());
@@ -161,9 +161,9 @@ public class Main {
 
 				System.out.println("Digite o CPF para remover o cadastro.");
 
-				scanner2.next();
-				System.out.println("--------------------");
-				rm = scanner2.nextLine();
+				
+				Scanner in = new Scanner(System.in);
+				rm = in.nextLine();
 				if (rm != " " && rm != null) {
 					pf.remover(rm);
 
@@ -242,8 +242,9 @@ public class Main {
 			case 2:
 				System.out.println("--------------------");
 				System.out.println("Digite o CNPJ para a busca");
-				scanner2.next();
-				bus = scanner2.nextLine();
+				Scanner input = new Scanner(System.in);
+				
+				bus = input.nextLine();
 				if (bus != " " && bus != null) {
 					PessoaJuridica pjj = pj.buscar(bus);
 					System.out.println("--------------------");
@@ -265,8 +266,8 @@ public class Main {
 				System.out.println("--------------------");
 				System.out.println("Digite o CNPJ para remover o cadastro.");
 				System.out.println("--------------------");
-				scanner2.next();
-				rm = scanner2.nextLine();
+				Scanner in = new Scanner(System.in);
+				rm = in.nextLine();
 				if (rm != " " && rm != null) {
 					pj.remover(rm);
 					System.out.println("--------------------");
@@ -382,7 +383,7 @@ public class Main {
 
 			for (PessoaFisica pessoa : PessoaRepository) {
 
-				if (id == pessoa.cpf)
+				if (pessoa.getCpf().equals(id))
 					return pessoa;
 
 			}
@@ -441,12 +442,12 @@ public class Main {
 			return true;
 		}
 
-		@Override
+	@Override
 		public PessoaJuridica buscar(String id) {
 
 			for (PessoaJuridica pessoa : PessoaRepository) {
 
-				if (id == pessoa.getCnpj())
+				if (pessoa.getCnpj().equals(id))
 					return pessoa;
 
 			}
@@ -455,5 +456,3 @@ public class Main {
 
 		}
 	}
-}
-
